@@ -21,7 +21,7 @@ namespace AttackDataTransitionFix
 		if (!playerRef)
 			return false;
 
-		auto playerHighData = playerRef && playerRef->currentProcess ? playerRef->currentProcess->high : nullptr;
+		auto playerHighData = playerRef && playerRef->GetActorRuntimeData().currentProcess ? playerRef->GetActorRuntimeData().currentProcess->high : nullptr;
 		if (!playerHighData || !playerHighData->attackData)
 			return false;
 
@@ -31,7 +31,7 @@ namespace AttackDataTransitionFix
 			auto attackData = FindAttackData(playerRef, attackEvent);
 			if (attackData && playerHighData->attackData.get() != attackData) {
 				playerHighData->attackData.reset(attackData);
-				DEBUG("Reapply Attack Data \"{}\" in event \"{}\"", attackEvent, text);
+				SKSE::log::debug("Reapply Attack Data \"{}\" in event \"{}\"", attackEvent, text);
 				return true;
 			}
 		}
