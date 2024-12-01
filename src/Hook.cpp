@@ -40,9 +40,9 @@ namespace AttackDataTransitionFix
 	EventResult AnimEventHook::ProcessEvent(RE::BSTEventSink<RE::BSAnimationGraphEvent>* a_sink, RE::BSAnimationGraphEvent* a_event, RE::BSTEventSource<RE::BSAnimationGraphEvent>* a_eventSource)
 	{
 		if (a_event && a_event->holder && a_event->holder->IsPlayerRef()) {
-			auto playerRef = const_cast<RE::Actor*>(a_event->holder->As<RE::Actor>());
+			auto playerRef = RE::PlayerCharacter::GetSingleton()->As<RE::Actor>();
 			if (playerRef) {
-				DelayedAttackDataHandler::ReapplyAttackData(playerRef, a_event->tag, a_event->payload);
+				DelayedAttackDataHandler::ReapplyAttackData(playerRef, a_event->tag);
 			}
 		}
 

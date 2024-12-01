@@ -8,7 +8,7 @@
     "directxtk",
     "catch2",
     "rapidcsv",
-    "xbyak"
+    "simpleini"
   ],
   "builtin-baseline": "7eb700c9688daed6d8bdcdc571ebe3eedea6a774"
 }

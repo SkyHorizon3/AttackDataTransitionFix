@@ -31,6 +31,8 @@ namespace AttackDataTransitionFix
 			auto& trampoline = SKSE::GetTrampoline();
 			SKSE::AllocTrampoline(14);
 			_UpdateAttackData = trampoline.write_call<5>(hook.address() + 0x3A, UpdateAttackData);
+
+			SKSE::log::info("Hook AttackDataUpdateHookSE!");
 		};
 
 	private:
@@ -48,6 +50,8 @@ namespace AttackDataTransitionFix
 			auto& trampoline = SKSE::GetTrampoline();
 			SKSE::AllocTrampoline(14);
 			_UpdateAttackData = trampoline.write_branch<5>(hook.address() + 0x4, UpdateAttackData);
+
+			SKSE::log::info("Hook AttackDataUpdateHookAE!");
 		};
 
 	private:

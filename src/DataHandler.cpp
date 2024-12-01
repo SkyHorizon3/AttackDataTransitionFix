@@ -14,7 +14,7 @@ namespace AttackDataTransitionFix
 		return playerRef->GetGraphVariableBool(BoolVarName, shouldDelayed) && shouldDelayed;
 	}
 
-	bool DelayedAttackDataHandler::ReapplyAttackData(RE::Actor* playerRef, const RE::BSFixedString& a_animationEvent, const RE::BSFixedString& a_payload)
+	bool DelayedAttackDataHandler::ReapplyAttackData(RE::Actor* playerRef, const RE::BSFixedString& a_animationEvent)
 	{
 		constexpr std::string_view prefix = "ADTF_Reapply_";
 
